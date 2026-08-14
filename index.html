@@ -543,6 +543,7 @@
         <button class="week-btn" onclick="filterWeek('semana-10')">Week 10</button>
         <button class="week-btn" onclick="filterWeek('semana-11')">Week 11</button>
         <button class="week-btn" onclick="filterWeek('semana-12')">Week 12</button>
+		<button class="week-btn" onclick="filterWeek('semana-12')">Week 13</button>
         <button class="week-btn" onclick="filterWeek('conclusion')">Conclusion</button>
       </div>
 
@@ -736,12 +737,14 @@
         <!-- Week 9 (Unit 11) -->
         <article class="card week-card semana-9">
           <div class="carousel-container">
-            <img src="images/week09-2.jpeg" alt="Week 9 Evidence 2" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week09-1.jpg" alt="Week 9 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+			<img src="images/week09-2.jpeg" alt="Week 9 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
 			<img src="images/week09-3.jpg" alt="Week 9 Evidence 3" class="carousel-img" onclick="openModal(this.src)">
             <img src="images/week09-4.jpg" alt="Week 9 Evidence 4" class="carousel-img" onclick="openModal(this.src)">
             <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
             <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
 			<button class="carousel-btn next" onclick="moveSlide(this, 2)">❯</button>
+			<button class="carousel-btn next" onclick="moveSlide(this, 3)">❯</button>
             <div class="carousel-dots">
               <span class="dot active" onclick="setSlide(this, 0)"></span>
               <span class="dot" onclick="setSlide(this, 1)"></span>
@@ -806,11 +809,19 @@
           <div class="carousel-container">
             <img src="images/week12-1.jpeg" alt="Week 12 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
             <img src="images/week12-2.jpeg" alt="Week 12 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+			<img src="images/week12-3.jpeg" alt="Week 12 Evidence 3" class="carousel-img" onclick="openModal(this.src)">
+			<img src="images/week12-4.jpeg" alt="Week 12 Evidence 4" class="carousel-img" onclick="openModal(this.src)">
+			<img src="images/week12-5.jpeg" alt="Week 12 Evidence 5" class="carousel-img" onclick="openModal(this.src)">
+			<img src="images/week12-6.jpeg" alt="Week 12 Evidence 6" class="carousel-img" onclick="openModal(this.src)">
             <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
             <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
             <div class="carousel-dots">
               <span class="dot active" onclick="setSlide(this, 0)"></span>
               <span class="dot" onclick="setSlide(this, 1)"></span>
+			  <span class="dot" onclick="setSlide(this, 2)"></span>
+			  <span class="dot" onclick="setSlide(this, 3)"></span>
+			  <span class="dot" onclick="setSlide(this, 4)"></span>
+			  <span class="dot" onclick="setSlide(this, 5)"></span>
             </div>
           </div>
           <div class="card-content">
@@ -822,13 +833,39 @@
             <p>[Final filled worksheet practice and course wrap-up evidence.]</p>
           </div>
         </article>
+		
+		<!-- Week 13 (End of English Course 1) -->
+        <article class="card week-card semana-12">
+          <div class="carousel-container">
+            <img src="images/week13-1.jpeg" alt="Week 12 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week13-2.jpeg" alt="Week 12 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+			<img src="images/week13-3.jpeg" alt="Week 12 Evidence 3" class="carousel-img" onclick="openModal(this.src)">
+			<img src="images/week12-4.jpeg" alt="Week 12 Evidence 4" class="carousel-img" onclick="openModal(this.src)">
+			<button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+			  <span class="dot" onclick="setSlide(this, 2)"></span>
+			  <span class="dot" onclick="setSlide(this, 3)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">End of English Course 1</span>
+              <span class="week-badge">Week 13</span>
+            </div>
+            <h2>Oral Final Exam</h2>
+            <p>Present a persuasive pitch to win Aided Learning as a client. Your group must pitch a comprehensive proposal focusing on cybersecuring the company's mobile app</p>
+          </div>
+        </article>
 
-   <!-- Week 13 / Conclusion Section -->
+   <!-- Week 14 / Conclusion Section -->
         <article class="card week-card conclusion" style="grid-column: 1 / -1;">
           <div class="card-content">
             <div class="badge-group">
               <span class="unit-badge">Course Reflection</span>
-              <span class="week-badge">Week 13</span>
+              <span class="week-badge">Week 14</span>
             </div>
             <h2>Oral Conclusion & Final Reflection</h2>
             <p style="margin-bottom: 20px;">In these videos, we answer the final questions: What did you already know before this course? What new things have you learned about English?</p>
