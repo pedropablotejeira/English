@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>English 1 Portfolio | Units 7–12</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --accent: #38bdf8;
+      --accent-hover: #7dd3fc;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 15px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+    }
+
+    /* COVER PAGE / PRESENTATION */
+    .cover-page {
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .logo-container {
+      margin-bottom: 20px;
+    }
+
+    .cover-logo {
+      width: 100%;
+      max-width: 380px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .cover-section {
+      margin-bottom: 25px;
+    }
+
+    .cover-section h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .cover-section p {
+      font-size: 1.05rem;
+      margin: 4px 0;
+      color: var(--text);
+    }
+
+    /* MEMBERS LIST */
+    .members-list {
+      max-width: 600px;
+      margin: 15px auto 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+    }
+
+    @media (max-width: 550px) {
+      .members-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .member-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 12px;
+      background: rgba(51, 65, 85, 0.4);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+
+    .member-name {
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .member-id {
+      color: var(--text-muted);
+      font-family: monospace;
+      margin-left: 8px;
+    }
+
+    /* VIDEO PLAYERS */
+    .video-block {
+      max-width: 720px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    .video-block video {
+      width: 100%;
+      max-height: 400px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background-color: #000;
+    }
+
+    /* ENTER BUTTON */
+    .btn-enter {
+      display: inline-block;
+      background: var(--accent);
+      color: #0f172a;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: transform 0.2s, background 0.2s;
+      margin-top: 15px;
+    }
+
+    .btn-enter:hover {
+      transform: translateY(-2px);
+      background: var(--accent-hover);
+    }
+
+    /* PORTFOLIO HEADER & NAVIGATION */
+    header#portfolio-header {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header#portfolio-header h1 {
+      color: var(--accent);
+      margin: 0 0 8px 0;
+      font-size: 2rem;
+    }
+
+    header#portfolio-header p {
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    .weeks-nav {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .week-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 10px 8px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .week-btn:hover {
+      background: var(--border);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .week-btn.active-nav {
+      background: var(--accent);
+      color: #0f172a;
+      border-color: var(--accent);
+    }
+
+    .btn-back {
+      display: inline-block;
+      background: var(--card-bg);
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* CAROUSEL */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      height: 240px;
+      background-color: #0b1120;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .carousel-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease-in-out;
+      cursor: zoom-in;
+    }
+
+    .carousel-img.active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 1;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 0.9rem;
+      z-index: 2;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .carousel-btn:hover {
+      background: var(--accent);
+      color: #0f172a;
+    }
+
+    .carousel-btn.prev { left: 8px; }
+    .carousel-btn.next { right: 8px; }
+
+    .carousel-dots {
+      position: absolute;
+      bottom: 8px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .dot.active {
+      background: var(--accent);
+    }
+
+    .card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .badge-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .unit-badge {
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .week-badge {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .card h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin: 0;
+    }
+
+    /* FULLSCREEN MODAL */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      max-width: 95%;
+      max-height: 95%;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+      object-fit: contain;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover {
+      color: var(--accent);
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+     <!-- PAGE 1: PRESENTATION -->
+    <div id="cover-view">
+      <div class="cover-page">
+        
+        <div class="logo-container">
+          <img src="images/university-logo.png" alt="University Logo" class="cover-logo">
+        </div>
+
+        <div class="cover-section">
+          <h3>Portfolio</h3>
+          <h3>English 1</h3>
+          <p>Units 7 to 12 — 13-Week Summary & Evidence</p>
+        </div>
+
+        <div class="cover-section">
+          <h3>Group Members</h3>
+          <div class="members-list">
+            <div class="member-row">
+              <span class="member-name">Córdoba, Boris</span>
+              <span class="member-id">8-950-2421</span>
+            </div>
+            <div class="member-row">
+              <span class="member-name">González, Isabel</span>
+              <span class="member-id">8-8822-1535</span>
+            </div>
+            <div class="member-row">
+              <span class="member-name">Morales, Cristian</span>
+              <span class="member-id">8-1044-1356</span>
+            </div>
+            <div class="member-row">
+              <span class="member-name">Ramos, Rogelio</span>
+              <span class="member-id">8-961-39</span>
+            </div>
+            <div class="member-row">
+              <span class="member-name">Tejeira, Pedro</span>
+              <span class="member-id">8-741-1265</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cover-section" style="margin-bottom: 8px;">
+          <h3>Professor</h3>
+          <p>Moisés Rodríguez</p>
+        </div>
+
+        <button class="btn-enter" onclick="openIntro()">View Introduction →</button>
+      </div>
+    </div>
+
+    
+    <!-- DEDICATED INTRODUCTION PAGE (5 MEMBER VIDEOS) -->
+    <div id="intro-view" class="hidden">
+      
+      <!-- TOP NAVIGATION BAR (Opposite Ends) -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <button class="btn-back" onclick="showCover()" style="margin-bottom: 0;">← Back to Cover</button>
+        <button class="btn-enter" onclick="openPortfolio()" style="margin-top: 0;">View Portfolio Weeks →</button>
+      </div>
+
+      <header id="intro-header" style="background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 20px; text-align: center; margin-bottom: 20px;">
+        <h1 style="color: var(--accent); margin: 0 0 8px 0; font-size: 2rem;">Portfolio Introduction</h1>
+        <p style="color: var(--text-muted); margin: 0;">Individual Oral Responses</p>
+      </header>
+
+      <div class="cover-page" style="text-align: left; margin-bottom: 25px;">
+        <!-- GRID FOR 5 MEMBER VIDEOS -->
+        <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px;">
+          
+          <!-- Video Member 1 -->
+          <div class="card card-content">
+            <span class="week-badge">Member 1</span>
+            <h3 style="margin-bottom: 10px;">Córdoba, Boris</h3>
+            <video controls style="width: 100%; max-height: 250px; border-radius: 8px; border: 1px solid var(--border); background: #000;">
+              <source src="videos/intro-member1.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <!-- Video Member 2 -->
+          <div class="card card-content">
+            <span class="week-badge">Member 2</span>
+            <h3 style="margin-bottom: 10px;">González, Isabel</h3>
+            <video controls style="width: 100%; max-height: 250px; border-radius: 8px; border: 1px solid var(--border); background: #000;">
+              <source src="videos/intro-member2.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <!-- Video Member 3 -->
+          <div class="card card-content">
+            <span class="week-badge">Member 3</span>
+            <h3 style="margin-bottom: 10px;">Morales, Cristian</h3>
+            <video controls style="width: 100%; max-height: 250px; border-radius: 8px; border: 1px solid var(--border); background: #000;">
+              <source src="videos/intro-member3.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <!-- Video Member 4 -->
+          <div class="card card-content">
+            <span class="week-badge">Member 4</span>
+            <h3 style="margin-bottom: 10px;">Ramos, Rogelio</h3>
+            <video controls style="width: 100%; max-height: 250px; border-radius: 8px; border: 1px solid var(--border); background: #000;">
+              <source src="videos/intro-member4.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <!-- Video Member 5 -->
+          <div class="card card-content">
+            <span class="week-badge">Member 5</span>
+            <h3 style="margin-bottom: 10px;">Tejeira, Pedro</h3>
+            <video controls style="width: 100%; max-height: 250px; border-radius: 8px; border: 1px solid var(--border); background: #000;">
+              <source src="videos/intro-member5.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 3: PORTFOLIO & WEEKLY PRACTICES -->
+    <div id="portfolio-view" class="hidden">
+      
+      <!-- TOP NAVIGATION BAR (Opposite Ends) -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <button class="btn-back" onclick="openIntro()" style="margin-bottom: 0;">← Back to Introduction</button>
+        <button class="btn-enter" onclick="filterWeek('conclusion')" style="margin-top: 0;">View Conclusion →</button>
+      </div>
+
+      <header id="portfolio-header">
+        <h1>English 1 Portfolio</h1>
+        <p>Units 7 to 12 | 12 Weekly Evidence Practices (12 Weeks)</p>
+      </header>
+
+      <!-- MENU / NAVIGATION BAR WITH INTRODUCTION ADDED -->
+      <div class="weeks-nav">
+        <button class="week-btn" onclick="openIntro()">Intro</button>
+        <button class="week-btn" onclick="filterWeek('all')">View All</button>
+        <button class="week-btn" onclick="filterWeek('semana-1')">Week 1</button>
+        <button class="week-btn" onclick="filterWeek('semana-2')">Week 2</button>
+        <button class="week-btn" onclick="filterWeek('semana-3')">Week 3</button>
+        <button class="week-btn" onclick="filterWeek('semana-4')">Week 4</button>
+        <button class="week-btn" onclick="filterWeek('semana-5')">Week 5</button>
+        <button class="week-btn" onclick="filterWeek('semana-6')">Week 6</button>
+        <button class="week-btn" onclick="filterWeek('semana-7')">Week 7</button>
+        <button class="week-btn" onclick="filterWeek('semana-8')">Week 8</button>
+        <button class="week-btn" onclick="filterWeek('semana-9')">Week 9</button>
+        <button class="week-btn" onclick="filterWeek('semana-10')">Week 10</button>
+        <button class="week-btn" onclick="filterWeek('semana-11')">Week 11</button>
+        <button class="week-btn" onclick="filterWeek('semana-12')">Week 12</button>
+        <button class="week-btn" onclick="filterWeek('conclusion')">Conclusion</button>
+      </div>
+
+      <!-- Weekly Evidence Cards -->
+      <main class="grid">
+
+        <!-- Week 1 (Unit 7) -->
+        <article class="card week-card semana-1">
+          <div class="carousel-container">
+            <img src="images/week01-1.jpg" alt="Week 1 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week01-2.png" alt="Week 1 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Unit 7</span>
+              <span class="week-badge">Week 01</span>
+            </div>
+            <h2>Weekly Practice 1: [Topic Title]</h2>
+            <p>[Detailed description of the filled practice sheet, grammar exercises, and covered topics for Week 1.]</p>
+          </div>
+        </article>
+
+        <!-- Week 2 (Unit 7) -->
+        <article class="card week-card semana-2">
+          <div class="carousel-container">
+            <img src="images/week02-1.png" alt="Week 2 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week02-2.png" alt="Week 2 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Unit 7</span>
+              <span class="week-badge">Week 02</span>
+            </div>
+            <h2>Weekly Practice 2: [Topic Title]</h2>
+            <p>[Detailed description of the filled practice sheet, reading comprehension, and vocabulary.]</p>
+          </div>
+        </article>
+
+        <!-- Week 3 (Unit 8) -->
+        <article class="card week-card semana-3">
+          <div class="carousel-container">
+            <img src="images/week03-1.png" alt="Week 3 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week03-2.png" alt="Week 3 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Unit 8</span>
+              <span class="week-badge">Week 03</span>
+            </div>
+            <h2>Weekly Practice 3: [Topic Title]</h2>
+            <p>[Summary of completed activity and key structures reviewed.]</p>
+          </div>
+        </article>
+
+        <!-- Week 4 (Unit 8) -->
+        <article class="card week-card semana-4">
+          <div class="carousel-container">
+            <img src="images/week04-1.png" alt="Week 4 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week04-2.png" alt="Week 4 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Unit 8</span>
+              <span class="week-badge">Week 04</span>
+            </div>
+            <h2>Weekly Practice 4: [Topic Title]</h2>
+            <p>[Summary of exercises, oral dialogues, and written evidence.]</p>
+          </div>
+        </article>
+
+        <!-- Week 5 (Unit 9) -->
+        <article class="card week-card semana-5">
+          <div class="carousel-container">
+            <img src="images/week05-1.png" alt="Week 5 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week05-2.png" alt="Week 5 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Unit 9</span>
+              <span class="week-badge">Week 05</span>
+            </div>
+            <h2>Weekly Practice 5: [Topic Title]</h2>
+            <p>[Summary of filled practice sheet and grammar focus.]</p>
+          </div>
+        </article>
+
+        <!-- Week 6 (Unit 9) -->
+        <article class="card week-card semana-6">
+          <div class="carousel-container">
+            <img src="images/week06-1.png" alt="Week 6 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week06-2.png" alt="Week 6 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Unit 9</span>
+              <span class="week-badge">Week 06</span>
+            </div>
+            <h2>Weekly Practice 6: [Topic Title]</h2>
+            <p>[Summary of listening and reading comprehension practice.]</p>
+          </div>
+        </article>
+
+        <!-- Week 7 (Unit 10) -->
+        <article class="card week-card semana-7">
+          <div class="carousel-container">
+            <img src="images/week07-1.png" alt="Week 7 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week07-2.png" alt="Week 7 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Unit 10</span>
+              <span class="week-badge">Week 07</span>
+            </div>
+            <h2>Weekly Practice 7: [Topic Title]</h2>
+            <p>[Summary of practical activities, vocabulary, and grammar.]</p>
+          </div>
+        </article>
+
+        <!-- Week 8 (Unit 10) -->
+        <article class="card week-card semana-8">
+          <div class="carousel-container">
+            <img src="images/week08-1.png" alt="Week 8 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week08-2.png" alt="Week 8 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Unit 10</span>
+              <span class="week-badge">Week 08</span>
+            </div>
+            <h2>Weekly Practice 8: [Topic Title]</h2>
+            <p>[Summary of completed exercises and interactive tasks.]</p>
+          </div>
+        </article>
+
+        <!-- Week 9 (Unit 11) -->
+        <article class="card week-card semana-9">
+          <div class="carousel-container">
+            <img src="images/week09-1.png" alt="Week 9 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week09-2.png" alt="Week 9 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Unit 11</span>
+              <span class="week-badge">Week 09</span>
+            </div>
+            <h2>Weekly Practice 9: [Topic Title]</h2>
+            <p>[Summary of grammar focus and written practice.]</p>
+          </div>
+        </article>
+
+        <!-- Week 10 (Unit 11) -->
+        <article class="card week-card semana-10">
+          <div class="carousel-container">
+            <img src="images/week10-1.png" alt="Week 10 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week10-2.png" alt="Week 10 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Unit 11</span>
+              <span class="week-badge">Week 10</span>
+            </div>
+            <h2>Weekly Practice 10: [Topic Title]</h2>
+            <p>[Summary of advanced topics and reading exercises.]</p>
+          </div>
+        </article>
+
+        <!-- Week 11 (Unit 12) -->
+        <article class="card week-card semana-11">
+          <div class="carousel-container">
+            <img src="images/week11-1.png" alt="Week 11 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week11-2.png" alt="Week 11 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Unit 12</span>
+              <span class="week-badge">Week 11</span>
+            </div>
+            <h2>Weekly Practice 11: [Topic Title]</h2>
+            <p>[Summary of final unit topics and vocabulary review.]</p>
+          </div>
+        </article>
+
+        <!-- Week 12 (Unit 12) -->
+        <article class="card week-card semana-12">
+          <div class="carousel-container">
+            <img src="images/week12-1.png" alt="Week 12 Evidence 1" class="carousel-img active" onclick="openModal(this.src)">
+            <img src="images/week12-2.png" alt="Week 12 Evidence 2" class="carousel-img" onclick="openModal(this.src)">
+            <button class="carousel-btn prev" onclick="moveSlide(this, -1)">❮</button>
+            <button class="carousel-btn next" onclick="moveSlide(this, 1)">❯</button>
+            <div class="carousel-dots">
+              <span class="dot active" onclick="setSlide(this, 0)"></span>
+              <span class="dot" onclick="setSlide(this, 1)"></span>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Unit 12</span>
+              <span class="week-badge">Week 12</span>
+            </div>
+            <h2>Weekly Practice 12: [Topic Title]</h2>
+            <p>[Final filled worksheet practice and course wrap-up evidence.]</p>
+          </div>
+        </article>
+
+        <!-- Week 13 / Conclusion Section -->
+        <article class="card week-card conclusion" style="grid-column: 1 / -1;">
+          <div class="card-content">
+            <div class="badge-group">
+              <span class="unit-badge">Course Reflection</span>
+              <span class="week-badge">Week 13</span>
+            </div>
+            <h2>Oral Conclusion & Final Reflection</h2>
+            <p>In this video, we orally address the final conclusion questions, reflecting on our overall learning process across Units 7 to 12 without reading from a script.</p>
+            
+            <div class="video-block" style="margin-top: 15px;">
+              <video controls poster="images/conclusion-poster.jpg">
+                <source src="videos/conclusion-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </article>
+
+      </main>
+    </div>
+
+  </div>
+
+  <!-- FULLSCREEN MODAL FOR IMAGES -->
+  <div id="imgModal" class="modal" onclick="closeModal()">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="fullImg" alt="Expanded Evidence View">
+  </div>
+
+  <!-- ROUTING & INTERACTIVITY SCRIPT -->
+  <script>
+    function openIntro() {
+      window.location.hash = 'intro';
+    }
+
+    function openPortfolio() {
+      window.location.hash = 'all';
+    }
+
+    function showCover() {
+      window.location.hash = '';
+    }
+
+    function filterWeek(weekClass) {
+      window.location.hash = weekClass;
+    }
+
+    function handleRouting() {
+      const hash = window.location.hash.replace('#', '');
+      const coverView = document.getElementById('cover-view');
+      const introView = document.getElementById('intro-view');
+      const portfolioView = document.getElementById('portfolio-view');
+      const header = document.getElementById('portfolio-header');
+      const cards = document.querySelectorAll('.week-card');
+
+      coverView.classList.add('hidden');
+      if (introView) introView.classList.add('hidden');
+      portfolioView.classList.add('hidden');
+
+      if (!hash) {
+        coverView.classList.remove('hidden');
+        window.scrollTo(0, 0);
+        return;
+      }
+
+      if (hash === 'intro') {
+        if (introView) introView.classList.remove('hidden');
+        window.scrollTo(0, 0);
+        return;
+      }
+
+      portfolioView.classList.remove('hidden');
+
+      if (hash === 'all') {
+        header.classList.remove('hidden');
+      } else {
+        header.classList.add('hidden');
+      }
+
+      // Hide Conclusion card on "View All", but display it when "Conclusion" is clicked
+      cards.forEach(card => {
+        if (hash === 'all') {
+          if (card.classList.contains('conclusion')) {
+            card.classList.add('hidden');
+          } else {
+            card.classList.remove('hidden');
+          }
+        } else if (card.classList.contains(hash)) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      window.scrollTo(0, 0);
+    }
+
+    window.addEventListener('hashchange', handleRouting);
+    window.addEventListener('DOMContentLoaded', handleRouting);
+
+    /* CAROUSEL CONTROLS */
+    function showSlide(container, index) {
+      const images = container.querySelectorAll('.carousel-img');
+      const dots = container.querySelectorAll('.dot');
+      if (images.length <= 1) return;
+
+      let newIndex = index;
+      if (index >= images.length) newIndex = 0;
+      if (index < 0) newIndex = images.length - 1;
+
+      images.forEach((img, i) => {
+        img.classList.toggle('active', i === newIndex);
+      });
+
+      if (dots.length > 0) {
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === newIndex);
+        });
+      }
+    }
+
+    function moveSlide(button, direction) {
+      const container = button.closest('.carousel-container');
+      const images = container.querySelectorAll('.carousel-img');
+      let currentIndex = 0;
+
+      images.forEach((img, i) => {
+        if (img.classList.contains('active')) currentIndex = i;
+      });
+
+      showSlide(container, currentIndex + direction);
+    }
+
+    function setSlide(dot, index) {
+      const container = dot.closest('.carousel-container');
+      showSlide(container, index);
+    }
+
+    /* FULLSCREEN MODAL */
+    function openModal(src) {
+      const modal = document.getElementById('imgModal');
+      const fullImg = document.getElementById('fullImg');
+      modal.style.display = 'flex';
+      fullImg.src = src;
+    }
+
+    function closeModal() {
+      document.getElementById('imgModal').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
